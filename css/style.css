@@ -1,0 +1,353 @@
+/* ==========================================================================
+   Variables globales
+   ========================================================================== */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #3e0303;
+  --color-primary: #430000;
+  --color-muted: #a27171;
+  --color-border: #e5ebeb;
+  --color-cream: #f3ead9;
+
+  --font-main: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+
+  --max-width: 1100px;
+  --spacing: 1.5rem;
+  --product-col: calc((1100px - 2 * 1.5rem - 2.5rem) / 2);
+}
+
+/* ==========================================================================
+   Reset de base
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size:23px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+}
+
+main p {
+  font-size: 1.35rem;
+  line-height: 1.75;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+}
+
+/* ==========================================================================
+   Header / Navigation
+   ========================================================================== */
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Sections génériques (réutilisables sur toutes les pages)
+   ========================================================================== */
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: var(--color-muted);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero {
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  border: none;
+  border-top: 3px solid var(--color-primary);
+  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  background: var(--color-cream);
+  box-shadow: 0 6px 18px rgba(67, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(67, 0, 0, 0.16);
+}
+
+.grid .card:nth-child(4n+1) { background: #fadfca; }
+.grid .card:nth-child(4n+2) { background: #f6cfc2; }
+.grid .card:nth-child(4n+3) { background: #eec4c4; }
+.grid .card:nth-child(4n+4) { background: #d9a9a9; }
+
+.card h3 {
+  font-family: var(--font-serif);
+  color: var(--color-primary);
+  margin: 0 0 0.75rem;
+  font-size: 1.7rem;
+  overflow-wrap: break-word;
+}
+
+.card p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Hero variante sombre (page d'accueil)
+   ========================================================================== */
+.hero-dark {
+  background: var(--color-primary);
+  color: var(--color-cream);
+  text-align: left;
+}
+
+.hero-dark-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.hero-bar {
+  width: 4px;
+  align-self: stretch;
+  background: var(--color-muted);
+  flex-shrink: 0;
+}
+
+.hero-eyebrow {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin: 0 0 1.5rem;
+}
+
+.hero-slogan {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.15;
+  margin: 0 0 2rem;
+}
+
+.hero-dark .btn {
+  background: var(--color-cream);
+  color: var(--color-primary);
+}
+
+/* ==========================================================================
+   Cartes équipe
+   ========================================================================== */
+.team-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 500px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  border: none;
+  border-top: 3px solid var(--color-primary);
+  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  background: var(--color-cream);
+  box-shadow: 0 6px 18px rgba(67, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(67, 0, 0, 0.14);
+}
+
+.team-card h3 {
+  font-family: var(--font-serif);
+  color: var(--color-primary);
+  margin: 0 0 0.75rem;
+  font-size: 1.4rem;
+}
+
+.team-card p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.team-card-1 { background: #fadfca; }
+.team-card-2 { background: #f6cfc2; }
+.team-card-3 { background: #eec4c4; }
+.team-card-4 { background: #d9a9a9; }
+
+.team-photo {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.callout-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.callout {
+  width: 1020px;
+  height: 500px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background: #c3d0d6;
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  overflow: hidden;
+}
+
+.callout .section-title {
+  font-size: 1.8rem;
+}
+
+.callout p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Intro produit (photo + texte)
+   ========================================================================== */
+.product-intro {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.product-intro > * {
+  flex: 1 1 320px;
+}
+
+.product-intro p {
+  font-size: 1.35rem;
+  line-height: 1.7;
+}
+
+.product-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.product-gallery {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.product-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 2rem 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
