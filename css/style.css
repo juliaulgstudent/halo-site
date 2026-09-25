@@ -419,3 +419,8 @@ a {
     gap: 1.5rem;
   }
 }
+
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+}
